@@ -182,10 +182,11 @@ class TestStatisticsUtils(unittest.TestCase):
         - Llamar a min_max_scale con esa secuencia y verificar que se lanza un ValueError indicando que todos los valores son iguales (usar self.assertRaises)
         """
         #Arrange
+        list = np.array([3, 3, 3])
+        utils = StatisticsUtils()  
+        #Act, #Assert
+        self.assertRaises(ValueError,utils.min_max_scale,list)
 
-        #Act
-
-        #Assert
 
 if __name__ == "__main__":
     unittest.main()
