@@ -79,11 +79,13 @@ class TestStatisticsUtils(unittest.TestCase):
         - Llamar a moving_average con window mayor que la longitud del array y verificar que se lanza un ValueError (usar self.assertRaises)
         """
         #Arrange
-
-        #Act
-
+        list = np.array([1,2,3])
+        utils = StatisticsUtils()
+        #Act:
+ 
         #Assert
-        
+        self.assertRaises(ValueError,utils.moving_average,list,0  )
+        self.assertRaises(ValueError,utils.moving_average,list,0 )
 
 
 
