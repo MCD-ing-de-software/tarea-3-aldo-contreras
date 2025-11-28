@@ -57,7 +57,8 @@ class TestStatisticsUtils(unittest.TestCase):
         - Verificar que el resultado tiene la forma (shape) esperada (usar self.assertEqual para comparar tuplas de .shape - comparación simple, unittest es suficiente)
         """
         #Arrange
-        list = np.array([1,2,3,4,5])
+        #list = np.array([1,2,3,4,5])
+        list = [1,2,3,4,5]
         utils = StatisticsUtils()
         #Act
         resultado = utils.moving_average(list,2)
@@ -120,7 +121,8 @@ class TestStatisticsUtils(unittest.TestCase):
         - Verificar que la desviación estándar del resultado es aproximadamente 1 (usar self.assertAlmostEqual para un solo valor numérico - unittest es suficiente)
         """
         #Arrange
-        list = np.array( [10, 20, 30, 40])
+        # list = np.array( [10, 20, 30, 40])
+        list =  [10, 20, 30, 40]
         utils = StatisticsUtils()       
         #Act
         resultado = utils.zscore(list)
@@ -159,7 +161,8 @@ class TestStatisticsUtils(unittest.TestCase):
         - Verificar que los valores transformados son correctos (ej: [0.0, 0.5, 1.0] para [2, 4, 6]) (usar numpy.testing.assert_allclose() para comparar el array completo - esto es necesario para comparar arrays de NumPy con tolerancia para errores de punto flotante)
         """
         #Arrange
-        list = np.array( [2, 4, 6])
+        # list = np.array( [2, 4, 6])
+        list =  [2, 4, 6]
         utils = StatisticsUtils()  
         expected = np.array([0.0, 0.5, 1.0])        
         #Act
