@@ -159,10 +159,20 @@ class TestStatisticsUtils(unittest.TestCase):
         - Verificar que los valores transformados son correctos (ej: [0.0, 0.5, 1.0] para [2, 4, 6]) (usar numpy.testing.assert_allclose() para comparar el array completo - esto es necesario para comparar arrays de NumPy con tolerancia para errores de punto flotante)
         """
         #Arrange
-
+        list = np.array( [2, 4, 6])
+        utils = StatisticsUtils()  
+        expected = np.array([0.0, 0.5, 1.0])        
         #Act
+        resultado = utils.min_max_scale(list)
+        min_res = min(resultado)
+        max_res = max(resultado)
 
         #Assert
+        self.assertAlmostEqual(min_res,0.0)
+        self.assertAlmostEqual(max_res,1.0)
+        npt.assert_allclose(resultado,expected)
+
+
     def test_min_max_scale_raises_for_constant_values(self):
         """Test que verifica que el método min_max_scale lanza un ValueError cuando
         se llama con una secuencia donde todos los valores son iguales (no hay variación).
